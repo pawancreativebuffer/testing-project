@@ -949,15 +949,16 @@ nav {
   }
   #nav{
     position: fixed;
-    top: 0;
+    top: initial;
     right: 0;
     left: 0;
+    bottom: calc(100vh - 71px);
   }
   .nav{
     padding:0px;
     transform: initial;
     -webkit-transform: initial;
-    position: fixed;
+    position: relative;
     top: 0;
     right: 0;
     left: 0;
@@ -965,17 +966,19 @@ nav {
   }
   .content{
     left: 0;
-    bottom: initial !important;
-    top: 0;
+    bottom: 50px;
+    top: initial;
     background: red;
-    height: 50px !important;
+    height: calc(100vh - 119px) !important;
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
-    margin-top: 71px;
+    margin-top: 0;
+    max-height: initial;
+    position: fixed;
   }
   .input{
-    position: absolute;
+    position: fixed;
     transform: initial;
     -webkit-transform: initial;
     bottom: 0;
