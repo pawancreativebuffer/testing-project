@@ -370,15 +370,15 @@ page.addEventListener('focusin', handleFocusin)
       }, 20);
     },
     scrollUp(){
-      document.body.addEventListener("touchmove", ev => {
-  if (ev.touches.length > 1) {
-    ev.preventDefault();
-    ev.stopImmediatePropagation();
-  }
-}, true);
+//       document.body.addEventListener("touchmove", ev => {
+//   if (ev.touches.length > 1) {
+//     ev.preventDefault();
+//     ev.stopImmediatePropagation();
+//   }
+// }, true);
 
-window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
+// window.scrollTo(0, 0);
+//     document.body.scrollTop = 0;
     },
     blurbtn() {
       this.btnshow = false;
@@ -925,5 +925,41 @@ nav {
 .chat .el-loading-spinner {
   transform: translate(0rem, 184%);
   margin-top: 0rem !important;
+}
+
+@media all and (max-width:767px){
+  .chat{
+    position: absolute;
+    padding: 0px;
+  }
+  #nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  .nav{
+    padding:0px;
+    transform: initial;
+    -webkit-transform: initial;
+    position: relative;
+    height: 71px;
+  }
+  .content{
+    height: calc(100vh - 126px);
+    left: 0;
+    top: 0;
+    height: calc(100vh - 126px);
+    transform: initial;
+    -webkit-transform: initial;
+    padding: 0;
+    margin-top: 71px;
+  }
+  .input{
+    position: absolute;
+    transform: initial;
+    -webkit-transform: initial;
+    bottom: 0;
+  }
 }
 </style>
