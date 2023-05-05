@@ -65,8 +65,6 @@
         @keyup.enter="ask"
         ref="address"
         :disabled="disInput"
-        @click="fixExactHeader"
-        id="typeArea"
       />
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
@@ -356,25 +354,19 @@ page.addEventListener('focusin', handleFocusin)
       this.$refs.picker.className = "input";
     },
     getHeight() { 
-      // this.timer = setTimeout(() => {
-      //   this.$refs.address.style.height = "auto";
-      //   this.$refs.address.style.height = `${
-      //     this.$refs.address.scrollHeight / 10
-      //   }rem`;
-      //   console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
-      //   if (this.$refs.address.scrollHeight <= 234) {
-      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
-      //   } else {
-      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
-      //   }
-      //   this.handleScrollBottom();
-      // }, 20);
-      event.preventDefault();
-      const headerHeight = document.querySelector('nav').offsetHeight;
-      window.scrollTo({ top: event.target.getBoundingClientRect().top - headerHeight, behavior: 'smooth' });
-    },
-    fixExactHeader(){
-      
+      this.timer = setTimeout(() => {
+        this.$refs.address.style.height = "auto";
+        this.$refs.address.style.height = `${
+          this.$refs.address.scrollHeight / 10
+        }rem`;
+        console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
+        if (this.$refs.address.scrollHeight <= 234) {
+          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
+        } else {
+          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
+        }
+        this.handleScrollBottom();
+      }, 20);
     },
     blurbtn() {
       this.btnshow = false;
@@ -921,5 +913,37 @@ nav {
 .chat .el-loading-spinner {
   transform: translate(0rem, 184%);
   margin-top: 0rem !important;
+}
+
+
+@media all and (max-width: 767px){
+  .chat{
+    padding: 0px;
+    position: absolute;
+  }
+  #nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+  }
+  .nav{
+    position: static;
+    transform: initial;
+    -webkit-transform: initial;
+    padding: 0px;
+    height: 65px;
+  }
+  .content{
+    position: fixed;
+    max-height: initial;
+    height: auto !important;
+    padding: 65px 0px 70px;
+    background: green;
+  }
+  .suffix-placeholder{
+    display: none;
+  }
 }
 </style>
