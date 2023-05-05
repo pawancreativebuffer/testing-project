@@ -952,7 +952,7 @@ nav {
     top: initial;
     right: 0;
     left: 0;
-    bottom: calc(100vh - 101px);
+    bottom: calc(100vh - 150px);
     z-index: 99;
   }
   .nav{
@@ -970,7 +970,7 @@ nav {
     bottom: 50px;
     top: initial;
     background: red;
-    height: calc(100vh - 119px) !important;
+    height: 50px !important;
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
