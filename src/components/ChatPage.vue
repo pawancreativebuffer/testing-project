@@ -6,6 +6,7 @@
         <img src="@/fonts/daohang.svg" alt="svg" class="dh" />
         <div class="title">
           <img src="@/fonts/logo.svg" alt="logo" />
+          {{ bottomOffsetHeight }}
         </div>
       </div>
     </nav>
