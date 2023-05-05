@@ -65,8 +65,7 @@
         @keyup.enter="ask"
         ref="address"
         :disabled="disInput"
-        @click="scrollUp"
-      ></textarea>
+      />
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
         <!--  @click="pickeron" -->
@@ -118,7 +117,7 @@
       </van-popup>
     </div>
     <!--这个是内容占位，用于底部内容区增高-->
-    <!-- <div class="suffix-placeholder"></div> -->
+    <div class="suffix-placeholder"></div>
   </div>
 </template>
 
@@ -355,22 +354,19 @@ page.addEventListener('focusin', handleFocusin)
       this.$refs.picker.className = "input";
     },
     getHeight() { 
-      // this.timer = setTimeout(() => {
-      //   this.$refs.address.style.height = "auto";
-      //   this.$refs.address.style.height = `${
-      //     this.$refs.address.scrollHeight / 10
-      //   }rem`;
-      //   console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
-      //   if (this.$refs.address.scrollHeight <= 234) {
-      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
-      //   } else {
-      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
-      //   }
-      //   this.handleScrollBottom();
-      // }, 20);
-    },
-    
-    scrollUp(){
+      this.timer = setTimeout(() => {
+        this.$refs.address.style.height = "auto";
+        this.$refs.address.style.height = `${
+          this.$refs.address.scrollHeight / 10
+        }rem`;
+        console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
+        if (this.$refs.address.scrollHeight <= 234) {
+          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
+        } else {
+          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
+        }
+        this.handleScrollBottom();
+      }, 20);
     },
     blurbtn() {
       this.btnshow = false;
@@ -550,9 +546,6 @@ page.addEventListener('focusin', handleFocusin)
 </script>
 
 <style lang="scss">
-html {
-  virtual-keyboard: overlays-content;
-}
 .home {
   // height: 61.25rem;
   background-color: #f5f5f5;
@@ -920,52 +913,5 @@ nav {
 .chat .el-loading-spinner {
   transform: translate(0rem, 184%);
   margin-top: 0rem !important;
-}
-
-@media all and (max-width:767px){
-  .chat{
-    all: initial;
-    display: table;
-    width: 100%;
-  }
-  #nav{
-    position: static;
-    top: initial;
-    right: 0;
-    left: 0;
-    bottom: calc(100vh - 150px);
-    z-index: 99;
-    display: table-header-group;
-  }
-  .nav{
-    padding:0px;
-    transform: initial;
-    -webkit-transform: initial;
-    position: relative;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 71px;
-  }
-  .content{
-    left: 0;
-    bottom: 50px;
-    top: initial;
-    background: red;
-    height: calc(100vh - 186px);
-    transform: initial;
-    -webkit-transform: initial;
-    padding: 0;
-    margin-top: 0;
-    max-height: initial;
-    position: static;
-    display: table-row-group;
-  }
-  .input{
-    position: fixed;
-    transform: initial;
-    -webkit-transform: initial;
-    bottom: 0;
-  }
 }
 </style>
