@@ -940,7 +940,6 @@ nav {
     left:0;
     right:0;
     top:0;
-    bottom:0;
     max-height: initial;
     height: auto !important;
     padding: 65px 0px 70px;
