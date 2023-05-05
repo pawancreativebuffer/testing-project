@@ -12,18 +12,15 @@
     </nav>
 
     <!-- 聊天内容 -->
-    <div class="content" id="scroll" ref="contheight">
+    <!-- <div class="content" id="scroll" ref="contheight">
       <template v-for="(item, index) in [...msg]">
-        <!-- 用户信息 -->
         <div v-if="item.role === 'user'" v-bind:key="index" class="tello">
           <div class="right">
             <div class="span1">
               {{ item.content }}
             </div>
-            <!-- <img src="@/fonts/ready.svg" alt="" /> -->
           </div>
         </div>
-        <!-- AI消息 -->
         <div
           v-else-if="item.role === 'assistant'"
           v-bind:key="index"
@@ -35,7 +32,7 @@
           </div>
         </div>
       </template>
-    </div>
+    </div>-->
 
     <!-- 聊天输入框 -->
     <div class="input" ref="picker">
