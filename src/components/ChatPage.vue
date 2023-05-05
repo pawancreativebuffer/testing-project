@@ -1,7 +1,7 @@
 <template>
   <div class="chat" ref="chating">
     <!-- 头部 -->
-    <nav  :class="{ fixed: isHeaderFixed, 'keyboard-open': isKeyboardOpen }">
+    <nav id="nav">
       <div class="nav">
         <img src="@/fonts/daohang.svg" alt="svg" class="dh" />
         <div class="title">
@@ -37,7 +37,7 @@
     </div>
 
     <!-- 聊天输入框 -->
-    <div class="input main" ref="picker" :style="{ marginTop: isHeaderFixed ? '100px' : '0' }">
+    <div class="input" ref="picker">
       <div class="btn-box">
         <div class="btn" v-show="btnshow" @click="getTextCompiled">
           <img src="@/fonts/ready.svg" alt="" class="btnstyle" />
@@ -65,6 +65,8 @@
         @keyup.enter="ask"
         ref="address"
         :disabled="disInput"
+        @click="fixExactHeader"
+        id="typeArea"
       />
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
@@ -152,8 +154,6 @@ export default {
   data() {
     return {
       msg: [],
-      isHeaderFixed: false,
-      isKeyboardOpen: false,
       currentMsg: "",
       chooseMsg: "",
       resultHtml: "",
@@ -278,18 +278,6 @@ page.addEventListener('focusin', handleFocusin)
     }
   },
   methods: {
-    onInputFocus() {
-      this.isHeaderFixed = true;
-      if (!this.isKeyboardOpen && window.innerHeight < window.outerHeight) {
-        this.isKeyboardOpen = true;
-      }
-    },
-    onInputBlur() {
-      this.isHeaderFixed = false;
-      if (this.isKeyboardOpen) {
-        this.isKeyboardOpen = false;
-      }
-    },
     ask() {
       this.$refs.address.style.height = "auto";
       // this.btnshow = false;
@@ -381,6 +369,14 @@ page.addEventListener('focusin', handleFocusin)
         }
         this.handleScrollBottom();
       }, 20);
+    },
+    fixExactHeader(){
+      const input = document.getElementById('typeArea');
+      input.addEventListener('focus', (event) => {
+        event.preventDefault();
+        const headerHeight = document.getElementById('nav').offsetHeight;
+        window.scrollTo({ top: event.target.getBoundingClientRect().top - headerHeight, behavior: 'smooth' });
+      });
     },
     blurbtn() {
       this.btnshow = false;
@@ -927,18 +923,5 @@ nav {
 .chat .el-loading-spinner {
   transform: translate(0rem, 184%);
   margin-top: 0rem !important;
-}
-#nav.fixed {
-  position: fixed;
-}
-
-.main {
-  transition: margin-top 0.3s ease;
-}
-
-@media screen and (max-height: 500px) {
-  #nav.fixed.keyboard-open {
-    top: -50px;
-  }
 }
 </style>
