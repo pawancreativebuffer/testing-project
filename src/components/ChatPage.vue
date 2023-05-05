@@ -947,6 +947,8 @@ nav {
   .chat{
     position: absolute;
     padding: 0px;
+    top: initial;
+    height: 100%;
   }
   #nav{
     position: fixed;
