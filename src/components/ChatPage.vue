@@ -952,7 +952,7 @@ nav {
     bottom: 50px;
     top: initial;
     background: red;
-    height: auto;
+    height: calc(100vh - 126px);
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
