@@ -933,8 +933,7 @@ nav {
     padding: 0px;
   }
   #nav{
-    position: sticky;
-    position: -webkit-sticky;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
