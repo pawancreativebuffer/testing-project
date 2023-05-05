@@ -951,6 +951,7 @@ nav {
   }
   .content{
     left: 0;
+    bottom: initial !important;
     top: 0;
     background: red;
     height: 50px !important;
