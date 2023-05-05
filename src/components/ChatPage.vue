@@ -356,27 +356,25 @@ page.addEventListener('focusin', handleFocusin)
       this.$refs.picker.className = "input";
     },
     getHeight() { 
-      this.timer = setTimeout(() => {
-        this.$refs.address.style.height = "auto";
-        this.$refs.address.style.height = `${
-          this.$refs.address.scrollHeight / 10
-        }rem`;
-        console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
-        if (this.$refs.address.scrollHeight <= 234) {
-          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
-        } else {
-          this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
-        }
-        this.handleScrollBottom();
-      }, 20);
+      // this.timer = setTimeout(() => {
+      //   this.$refs.address.style.height = "auto";
+      //   this.$refs.address.style.height = `${
+      //     this.$refs.address.scrollHeight / 10
+      //   }rem`;
+      //   console.log(window.innerHeight - (this.$refs.contheight.offsetTop - window.pageYOffset) - (this.$refs.contheight.offsetHeight));
+      //   if (this.$refs.address.scrollHeight <= 234) {
+      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - ${this.$refs.address.style.height}`;
+      //   } else {
+      //     this.$refs.contheight.style.height = `calc(100vh - 9.5rem - 23.4rem`;
+      //   }
+      //   this.handleScrollBottom();
+      // }, 20);
+      event.preventDefault();
+      const headerHeight = document.querySelector('nav').offsetHeight;
+      window.scrollTo({ top: event.target.getBoundingClientRect().top - headerHeight, behavior: 'smooth' });
     },
     fixExactHeader(){
-      const input = document.getElementById('typeArea');
-      input.addEventListener('focus', (event) => {
-        event.preventDefault();
-        const headerHeight = document.getElementById('nav').offsetHeight;
-        window.scrollTo({ top: event.target.getBoundingClientRect().top - headerHeight, behavior: 'smooth' });
-      });
+      
     },
     blurbtn() {
       this.btnshow = false;
