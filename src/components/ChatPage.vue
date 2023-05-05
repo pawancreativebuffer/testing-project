@@ -65,6 +65,7 @@
         @keyup.enter="ask"
         ref="address"
         :disabled="disInput"
+        @click="scrollUp"
       />
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
@@ -367,6 +368,14 @@ page.addEventListener('focusin', handleFocusin)
         }
         this.handleScrollBottom();
       }, 20);
+    },
+    scrollUp(){
+      document.body.addEventListener("touchmove", ev => {
+  if (ev.touches.length > 1) {
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+  }
+}, true);
     },
     blurbtn() {
       this.btnshow = false;
