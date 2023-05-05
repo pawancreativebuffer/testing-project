@@ -370,8 +370,10 @@ page.addEventListener('focusin', handleFocusin)
       }, 20);
     },
     scrollTopBar(){
+      setInterval(function () {
       document.querySelector('body').addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1000);
   });
     },
     blurbtn() {
