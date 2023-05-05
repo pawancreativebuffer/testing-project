@@ -369,16 +369,29 @@ page.addEventListener('focusin', handleFocusin)
         this.handleScrollBottom();
       }, 20);
     },
+    
     scrollUp(){
-//       document.body.addEventListener("touchmove", ev => {
-//   if (ev.touches.length > 1) {
-//     ev.preventDefault();
-//     ev.stopImmediatePropagation();
-//   }
-// }, true);
+      let pendingUpdate = false;
 
-// window.scrollTo(0, 0);
-//     document.body.scrollTop = 0;
+        function viewportHandler() {
+          if (pendingUpdate) return;
+          pendingUpdate = true;
+
+          requestAnimationFrame(() => {
+            pendingUpdate = false;
+            
+            // Stick to top
+            document.querySelector('[data-stickto="top"]').style.transform = `translateY(${ Math.max(0, window.visualViewport.offsetTop)}px)`;
+            
+            // Stick to bottom
+            if (window.visualViewport.offsetTop >= 0) {
+              document.querySelector('[data-stickto="bottom"]').style.transform = `translateY(-${Math.max(0, window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop)}px)`;
+            }
+          });
+        }
+
+        window.visualViewport.addEventListener("scroll", viewportHandler);
+        window.visualViewport.addEventListener("resize", viewportHandler);
     },
     blurbtn() {
       this.btnshow = false;
