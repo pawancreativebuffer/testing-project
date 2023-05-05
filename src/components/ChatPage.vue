@@ -953,6 +953,7 @@ nav {
     right: 0;
     left: 0;
     bottom: calc(100vh - 71px);
+    z-index: 99;
   }
   .nav{
     padding:0px;
