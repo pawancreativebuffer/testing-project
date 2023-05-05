@@ -66,7 +66,7 @@
         ref="address"
         :disabled="disInput"
         @click="scrollUp"
-      />
+      ></textarea>
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
         <!--  @click="pickeron" -->
@@ -950,10 +950,10 @@ nav {
     height: 71px;
   }
   .content{
-    height: calc(100vh - 126px);
     left: 0;
     top: 0;
-    height: calc(100vh - 126px);
+    background: red;
+    height: 50px;
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
