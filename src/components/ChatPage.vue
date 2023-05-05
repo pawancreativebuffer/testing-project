@@ -571,6 +571,9 @@ page.addEventListener('focusin', handleFocusin)
 </script>
 
 <style lang="scss">
+html {
+  virtual-keyboard: overlays-content;
+}
 .home {
   // height: 61.25rem;
   background-color: #f5f5f5;
