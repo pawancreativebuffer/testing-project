@@ -156,6 +156,7 @@ export default {
       chooseMsg: "",
       resultHtml: "",
       rows: "1",
+      bottomOffsetHeight: null,
       chatLoading: false,
       controller: undefined,
       btnshow: false,
@@ -219,6 +220,7 @@ export default {
 	}
   },
   mounted() {
+    window.addEventListener('resize', this.getBottomOffsetHeight);
     var prompt = store.state.prompt;
 
     var educationPrompt = prompt.educational;
@@ -275,7 +277,13 @@ page.addEventListener('focusin', handleFocusin)
 
     }
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getBottomOffsetHeight);
+  },
   methods: {
+    getBottomOffsetHeight() {
+      this.bottomOffsetHeight = this.$refs.chating.getBoundingClientRect().bottom;
+    },
     ask() {
       this.$refs.address.style.height = "auto";
       // this.btnshow = false;
