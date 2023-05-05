@@ -936,7 +936,7 @@ nav {
     height: 65px;
   }
   .content{
-    position: fixed;
+    position: absolute;
     max-height: initial;
     height: auto !important;
     padding: 65px 0px 70px;
