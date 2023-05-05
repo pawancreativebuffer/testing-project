@@ -66,6 +66,7 @@
         ref="address"
         :disabled="disInput"
         @click="scrollUp"
+        inputmode='none'
       />
       <div class="fixbox">
         <img src="@/fonts/chatfly.svg" alt="send" class="send" @click="ask" />
