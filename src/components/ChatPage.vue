@@ -962,11 +962,10 @@ nav {
     display: table-row-group;
   }
   .input{
-    position: static;
+    position: fixed;
     transform: initial;
     -webkit-transform: initial;
     bottom: 0;
-    display: table-footer-group;
   }
 }
 </style>
