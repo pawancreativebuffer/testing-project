@@ -118,7 +118,7 @@
       </van-popup>
     </div>
     <!--这个是内容占位，用于底部内容区增高-->
-    <div class="suffix-placeholder"></div>
+    <!-- <div class="suffix-placeholder"></div> -->
   </div>
 </template>
 
@@ -946,14 +946,17 @@ nav {
 @media all and (max-width:767px){
   .chat{
     all: initial;
+    display: table;
+    width: 100%;
   }
   #nav{
-    position: fixed;
+    position: static;
     top: initial;
     right: 0;
     left: 0;
     bottom: calc(100vh - 150px);
     z-index: 99;
+    display: table-header-group;
   }
   .nav{
     padding:0px;
@@ -970,19 +973,21 @@ nav {
     bottom: 50px;
     top: initial;
     background: red;
-    height: 50px !important;
+    height: calc(100vh - 126px) !important;
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
     margin-top: 0;
     max-height: initial;
-    position: fixed;
+    position: static;
+    display: table-row-group;
   }
   .input{
-    position: fixed;
+    position: static;
     transform: initial;
     -webkit-transform: initial;
     bottom: 0;
+    display: table-footer-group;
   }
 }
 </style>
