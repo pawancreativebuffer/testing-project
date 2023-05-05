@@ -933,7 +933,7 @@ nav {
     padding: 0px;
   }
   #nav{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -942,7 +942,10 @@ nav {
     padding:0px;
     transform: initial;
     -webkit-transform: initial;
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     height: 71px;
   }
   .content{
