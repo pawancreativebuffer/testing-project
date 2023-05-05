@@ -949,5 +949,16 @@ nav {
   .suffix-placeholder{
     display: none;
   }
+  .input{
+    position: absolute;
+    transform: initial;
+    -webkit-transform: initial;
+    top: calc(100% - 49px);
+  }
+  .btn-box {
+    position: absolute;
+    right: 10px;
+    bottom: 40px;
+}
 }
 </style>
