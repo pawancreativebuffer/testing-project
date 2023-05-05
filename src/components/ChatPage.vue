@@ -6,21 +6,23 @@
         <img src="@/fonts/daohang.svg" alt="svg" class="dh" />
         <div class="title">
           <img src="@/fonts/logo.svg" alt="logo" />
-          {{ bottomOffsetHeight }}wef
         </div>
       </div>
     </nav>
 
     <!-- 聊天内容 -->
-    <!-- <div class="content" id="scroll" ref="contheight">
+    <div class="content" id="scroll" ref="contheight">
       <template v-for="(item, index) in [...msg]">
+        <!-- 用户信息 -->
         <div v-if="item.role === 'user'" v-bind:key="index" class="tello">
           <div class="right">
             <div class="span1">
               {{ item.content }}
             </div>
+            <!-- <img src="@/fonts/ready.svg" alt="" /> -->
           </div>
         </div>
+        <!-- AI消息 -->
         <div
           v-else-if="item.role === 'assistant'"
           v-bind:key="index"
@@ -32,7 +34,7 @@
           </div>
         </div>
       </template>
-    </div>-->
+    </div>
 
     <!-- 聊天输入框 -->
     <div class="input" ref="picker">
@@ -154,7 +156,6 @@ export default {
       chooseMsg: "",
       resultHtml: "",
       rows: "1",
-      bottomOffsetHeight: null,
       chatLoading: false,
       controller: undefined,
       btnshow: false,
@@ -218,7 +219,6 @@ export default {
 	}
   },
   mounted() {
-    window.addEventListener('resize', this.getBottomOffsetHeight);
     var prompt = store.state.prompt;
 
     var educationPrompt = prompt.educational;
@@ -275,13 +275,7 @@ page.addEventListener('focusin', handleFocusin)
 
     }
   },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.getBottomOffsetHeight);
-  },
   methods: {
-    getBottomOffsetHeight() {
-      this.bottomOffsetHeight = this.$refs.chating.getBoundingClientRect().bottom;
-    },
     ask() {
       this.$refs.address.style.height = "auto";
       // this.btnshow = false;
@@ -946,8 +940,9 @@ nav {
     left:0;
     right:0;
     top:0;
+    bottom: 0;
     max-height: initial;
-    height: 50px !important;
+    height: auto !important;
     padding: 65px 0px 70px;
     background: green;
   }
