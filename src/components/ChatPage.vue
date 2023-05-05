@@ -941,7 +941,7 @@ nav {
     right:0;
     top:0;
     max-height: initial;
-    height: auto !important;
+    height: 50px !important;
     padding: 65px 0px 70px;
     background: green;
   }
