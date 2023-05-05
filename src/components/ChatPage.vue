@@ -973,7 +973,7 @@ nav {
     bottom: 50px;
     top: initial;
     background: red;
-    height: calc(100vh - 180px) !important;
+    height: auto;
     transform: initial;
     -webkit-transform: initial;
     padding: 0;
